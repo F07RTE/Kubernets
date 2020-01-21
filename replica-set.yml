@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: http-echo-deployment
+  namespace: grupo5cps
+  labels:
+    app: http-echo
+   
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: http-echo
+     
+  template:
+    metadata:
+      labels:
+        app: http-echo
+    spec:
+      containers:
+        - name: http-echo
+          image: "hashicorp/http-echo"
+          imagePullPolicy: Always
+          args: ["-text", "<!DOCTYPE html>
+          <html>
+          <head>
+          <title>Page Title</title>
+          </head>
+          <body>
+          
+          <h1>This is a Heading</h1>
+          <p>This is a paragraph.</p>
+          
+          </body>
+          </html>"]
+          ports:
+            - name: app-port
+              containerPort: 5678
+              protocol: TCP
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-http-echo-service
+  namespace: grupo5cps
+spec:
+  selector:
+    app: http-echo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5678
+  type: LoadBalancer
