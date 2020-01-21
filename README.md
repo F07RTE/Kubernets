@@ -1,7 +1,7 @@
 # Kubernets
 In this repository you have yml iles to test the Kubernets
-You need to install azure-cli and kubectl
-Basics commands
+## You need to install azure-cli and kubectl
+## Basics commands
 kubectl get pods
 kubectl describe pods
 kubectl describe "file name"
